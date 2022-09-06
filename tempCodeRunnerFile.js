@@ -1,1 +1,1 @@
-  console.log(result);
+  return console.log(Math.abs(changedNumber - nums.length));
