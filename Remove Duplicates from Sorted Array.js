@@ -57,7 +57,7 @@ const removeDup = (num) => {
       pengsoo++;
     }
   }
-  return console.log(pengsoo);
+  return pengsoo;
 };
 removeDup([1, 1, 2]);
 
@@ -70,3 +70,32 @@ removeDup([1, 1, 2]);
 // for (int i = 0; i < k; i++) {
 //     assert nums[i] == expectedNums[i];
 // }
+
+var removeDuplicates5 = function (nums) {
+  let pengsoo = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === nums[i + 1]) {
+      nums.splice(i, 1);
+      i--;
+      console.log("inside : ", nums);
+      pengsoo++;
+      console.log("i : ", i);
+    }
+  }
+  return nums.length;
+};
+
+removeDuplicates5([1, 1, 2]);
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////내가 제출한 코드/////////////////////////////
+///////////////////////////밑에줄부터//////////////////////////////////////////////
+var removeDuplicates = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === nums[i + 1]) {
+      nums.splice(i, 1);
+      i--;
+    }
+  }
+  return nums.length;
+};
