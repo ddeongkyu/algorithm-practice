@@ -1,1 +1,1 @@
-splice
+  console.log(result);
