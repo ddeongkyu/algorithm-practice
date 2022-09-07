@@ -1,1 +1,1 @@
-  console.log(purePlusOne);
+    // console.log("result : ", result.join(""));
