@@ -1,1 +1,1 @@
-    // console.log("result : ", result.join(""));
+  return console.log("정답 : ", answer);
