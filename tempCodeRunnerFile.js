@@ -1,1 +1,2 @@
-  return console.log(pengsoo);
+
+    console.log("sort 이후 : ", list1);
