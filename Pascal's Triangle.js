@@ -35,4 +35,4 @@ var generate = function (numRows) {
   return result;
 };
 
-generate(6);
+generate(15);
