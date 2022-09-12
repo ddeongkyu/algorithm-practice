@@ -1,1 +1,1 @@
-      //   console.log(prices[i]);
+3
