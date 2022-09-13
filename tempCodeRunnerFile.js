@@ -1,3 +1,5 @@
-    //  else if (pengsoo.has(nums[i])) {
-    //   pengsoo.set(nums[i], pengsoo.values() + 1);
-    // }
+console.log(
+//   [3, 5].reduce((acc, cur) => {
+//     return acc * cur;
+//   })
+// );
