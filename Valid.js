@@ -14,39 +14,26 @@
 var isValid = function (s) {
   let checked = [];
   let result = true;
-  //   if (s[0] === "]" || s[0] === ")" || s[0] === "}") {
-  //     return false;
-  //   }
+  const open = ["{", "(", "["];
+  if (s.length === 1) {
+    return false;
+  }
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === "(" || s[i] === "{" || s[i] === "[") {
+    console.log("i : ", i);
+    if (open.includes(s[i])) {
       checked.push(s[i]);
     }
-    if (s[i] === ")" && checked[checked.length - 1] === "(") {
-      checked.pop();
+    if (s[i] === ")") {
+      checked[checked.length - 1] === "(" ? checked.pop() : checked.push(s[i]);
     }
-    if (s[i] === "}" && checked[checked.length - 1] === "{") {
-      checked.pop();
+    if (s[i] === "}") {
+      checked[checked.length - 1] === "{" ? checked.pop() : checked.push(s[i]);
     }
-    if (s[i] === "]" && checked[checked.length - 1] === "[") {
-      checked.pop();
+    if (s[i] === "]") {
+      checked[checked.length - 1] === "[" ? checked.pop() : checked.push(s[i]);
     }
-    // if (s[i] === "]" && !checked.includes("[")) {
-    //   checked.push("이건 가짜에요");
-    // }
-    // if (s[i] === "}" && !checked.includes("{")) {
-    //   checked.push("이건 가짜에요");
-    // }
-    // if (s[i] === ")" && !checked.includes("(")) {
-    //   checked.push("이건 가짜에요");
-    // }
   }
   checked.length === 0 ? (result = true) : (result = false);
   return result;
 };
-// isValid("[{{[{[{[]]");
-console.log(isValid(")"));
-
-// isValid("[{[");
-// isValid("{[[]{}()]}");
-// checked = ["[","{","["]
-// ]
+console.log(isValid("()[]{}"));

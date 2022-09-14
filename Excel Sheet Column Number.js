@@ -15,4 +15,4 @@ var titleToNumber = function (columnTitle) {
   return penguin;
 };
 
-console.log(titleToNumber("ABC"));
+console.log(titleToNumber("ZZ"));
