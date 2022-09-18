@@ -4,63 +4,150 @@
  * @return {number[]}
  */
 var intersect = function (nums1, nums2) {
-  //  nums1 = nums1.sort();
-  // nums2 = nums2.sort();
-  //   const length = nums1.length >= nums2.length ? nums1.length : nums2.length;
-  const long = nums1.length >= nums2.length ? nums1 : nums2;
-  const short = nums1.length >= nums2.length ? nums2 : nums1;
-  console.log("long", long);
-  console.log("short", short);
-  //   console.log(long);
-  //   console.log(short);
-  //   let middle = [];
-  //   let idx = 0;
-  //   for (let i = 0; i < short.length; i++) {
-  //     for (let j = 0; j < long.length; j++) {
-  //       if (short.includes(long[i])) {
-  //         //  console.log(long[i]);
-  //       }
-  //       //   if (long[i] === short[i]) {
-  //       //     middle.push(long[i]);
-  //       //   }
-  //     }
-  //   }
-  //   // console.log("middle : ", middle);
-  //   //  let dif = nums1.filter((x) => nums2.includes(x));
-  //   console.log(short.filter((x) => long.includes(x)));
-  //   //return middle;
+  let long = nums1.length >= nums2.length ? nums1 : nums2;
+  let short = nums1.length >= nums2.length ? nums2 : nums1;
   let a = new Map();
-  //   for (let j = 0; j < short.length; j++) {
-  //     for (let i = 0; i < long.length; i++) {
-  //       console.log("i : ", i);
-  //       console.log("j : ", j);
-  //       if (!a.has(short[i])) {
-  //         a.set(short[i], long[j]);
-  //       } else if (a.has(short[i])) {
-  //         //  console.log("a.has(short[i])");
-  //         a.set(short[i], a.get(short[i]) + 1);
-  //       }
-  //     }
-  //   }
+  let res = [];
+  for (let i = 0; i < long.length; i++) {
+    for (let j = short.length - 1; j >= 0; j--) {
+      if (!a.has(short[j]) && short[j] === long[i]) {
+        a.set(short[j], 1);
+        short[j] = "jjj";
+        long[i] = "iii";
+        // short.splice(j, 1);
+        // long.splice(i, 1);
+      } else if (a.has(short[j]) && short[j] === long[i]) {
+        a.set(short[j], a.get(short[j]) + 1);
+        short[j] = "jjj";
+        long[i] = "iii";
 
-  //   for (let i = 0; i < short.length; i++) {
-  //     console.log(a);
-  //     for (let j = 0; j < long.length; j++) {
-  //       if (!a.has(short[i]) && short[i] === long[j]) {
-  //         a.set(short[i], 1);
-  //         long.splice(j, 1);
-  //       } else if (a.has(short[i]) && short[i] === long[j]) {
-  //         a.set(short[i], a.get(short[i]) + 1);
-  //         long.splice(j, 1);
-  //       }
-  //     }
-  //   }
-  //   console.log(long);
-  //   console.log(a);
+        // short.splice(j, 1);
+        // long.splice(i, 1);
+      }
+    }
+  }
 
-  let dif = short.filter((x) => long.includes(x));
-  console.log(dif);
-  console.log([1, 1].filter((x) => [1, 2].includes(x)));
+  for (const [key, value] of a) {
+    res.push(Array(value).fill(key));
+  }
+  console.log(a);
+  console.log(a.entries());
+  console.log("result : ", res.flatMap((a) => a).sort());
+  console.log(res.flatMap((a) => a).sort().length);
+  return res.flatMap((a) => a);
 };
 
-console.log(intersect([1, 2], [1, 1]));
+console.log(
+  intersect(
+    [
+      54, 93, 21, 73, 84, 60, 18, 62, 59, 89, 83, 89, 25, 39, 41, 55, 78, 27,
+      65, 82, 94, 61, 12, 38, 76, 5, 35, 6, 51, 48, 61, 0, 47, 60, 84, 9, 13,
+      28, 38, 21, 55, 37, 4, 67, 64, 86, 45, 33, 41,
+    ],
+    [
+      17, 17, 87, 98, 18, 53, 2, 69, 74, 73, 20, 85, 59, 89, 84, 91, 84, 34, 44,
+      48, 20, 42, 68, 84, 8, 54, 66, 62, 69, 52, 67, 27, 87, 49, 92, 14, 92, 53,
+      22, 90, 60, 14, 8, 71, 0, 61, 94, 1, 22, 84, 10, 55, 55, 60, 98, 76, 27,
+      35, 84, 28, 4, 2, 9, 44, 86, 12, 17, 89, 35, 68, 17, 41, 21, 65, 59, 86,
+      42, 53, 0, 33, 80, 20,
+    ]
+  )
+);
+const bb = [
+  18, 73, 59, 84, 84, 48, 54, 62, 67, 27, 60, 60, 0, 61, 94, 55, 55, 76, 35, 28,
+  9, 86, 12, 89, 41, 21, 65, 33,
+];
+const ex = [
+  54, 21, 73, 84, 60, 18, 62, 59, 89, 89, 41, 55, 27, 65, 94, 61, 12, 76, 35,
+  48, 0, 60, 84, 9, 28, 55, 4, 67, 86, 33,
+];
+console.log(ex.sort());
+console.log(ex.sort().length);
+// [
+//   54, 93, 21, 73, 84, 60, 18, 62, 59, 89, 83, 89, 25, 39, 41, 55, 78, 27, 65,
+//   82, 94, 61, 12, 38, 76, 5, 35, 6, 51, 48, 61, 0, 47, 60, 84, 9, 13, 28, 38,
+//   21, 55, 37, 4, 67, 64, 86, 45, 33, 41,
+// ][
+//   (17,
+//   17,
+//   87,
+//   98,
+//   18,
+//   53,
+//   2,
+//   69,
+//   74,
+//   73,
+//   20,
+//   85,
+//   59,
+//   89,
+//   84,
+//   91,
+//   84,
+//   34,
+//   44,
+//   48,
+//   20,
+//   42,
+//   68,
+//   84,
+//   8,
+//   54,
+//   66,
+//   62,
+//   69,
+//   52,
+//   67,
+//   27,
+//   87,
+//   49,
+//   92,
+//   14,
+//   92,
+//   53,
+//   22,
+//   90,
+//   60,
+//   14,
+//   8,
+//   71,
+//   0,
+//   61,
+//   94,
+//   1,
+//   22,
+//   84,
+//   10,
+//   55,
+//   55,
+//   60,
+//   98,
+//   76,
+//   27,
+//   35,
+//   84,
+//   28,
+//   4,
+//   2,
+//   9,
+//   44,
+//   86,
+//   12,
+//   17,
+//   89,
+//   35,
+//   68,
+//   17,
+//   41,
+//   21,
+//   65,
+//   59,
+//   86,
+//   42,
+//   53,
+//   0,
+//   33,
+//   80,
+//   20)
+// ];
