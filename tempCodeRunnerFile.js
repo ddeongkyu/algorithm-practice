@@ -1,3 +1,4 @@
-      //   if (isOne && grid[i + idx][j] === 1) {
-      //     res = res - 1;
-      //   }
+    //   if (
+      //     nums2[curr + 1] === undefined ||
+      //     nums2[hello] > nums2[curr + 1]
+      //   )
