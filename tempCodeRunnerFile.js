@@ -1,4 +1,1 @@
-    //   if (
-      //     nums2[curr + 1] === undefined ||
-      //     nums2[hello] > nums2[curr + 1]
-      //   )
+console.log(findPoisonedDuration([1, 2], 2));
