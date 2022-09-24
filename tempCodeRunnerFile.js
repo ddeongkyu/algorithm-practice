@@ -1,1 +1,1 @@
-console.log(findPoisonedDuration([1, 2], 2));
+    // console.log("zzz", s.splice(2, 2));
