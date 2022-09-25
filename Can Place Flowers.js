@@ -29,3 +29,4 @@ var canPlaceFlowers = function (flowerbed, n) {
 };
 
 console.log(canPlaceFlowers([1, 0, 0, 0, 1], 2));
+console.log(canPlaceFlowers([1, 0, 0, 0, 1], 1));
