@@ -1,1 +1,1 @@
-    // console.log("zzz", s.splice(2, 2));
+    console.log(`pengsoo : ${pengsoo}`);
